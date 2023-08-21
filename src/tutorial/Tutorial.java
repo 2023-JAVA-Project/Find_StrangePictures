@@ -32,15 +32,15 @@ public class Tutorial extends JFrame{
 		panel4.setLayout(null);
 		panel4.setBounds(0,0,1209,738);
 		panel1.setOpaque(false);
+		     
 		
 		
-		
-		ImageIcon change_next = new ImageIcon(Tutorial.class.getResource("../image/changebtn_right.png"));
+		ImageIcon change_next = new ImageIcon(Tutorial.class.getResource("../image/change_next.png"));
 		JButton change_nextbtn=new JButton(change_next);
 		change_nextbtn.setLayout(null);
 		change_nextbtn.setBounds(100,310,80,80);
 		
-		ImageIcon change_before= new ImageIcon(Tutorial.class.getResource("../image/changebtn_left.png"));
+		ImageIcon change_before= new ImageIcon(Tutorial.class.getResource("../image/change_before.png"));
 		JButton change_beforebtn=new JButton(change_before);
 		change_beforebtn.setLayout(null);
 		change_beforebtn.setBounds(100,310,80,80);
@@ -153,6 +153,17 @@ public class Tutorial extends JFrame{
 				panel3.setVisible(true);
 			}
 		});
+		panel2_next.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseEntered(MouseEvent e) {
+		        panel2_next.setIcon(change_next); // 마우스를 버튼 위로 올렸을 때 이미지 변경
+		    }
+
+		    @Override
+		    public void mouseExited(MouseEvent e) {
+		        panel2_next.setIcon(next_icon); // 마우스가 버튼을 벗어났을 때 이미지 복원
+		    }
+		});
 		panel2_before.addActionListener(new ActionListener() {
 			
 			@Override
@@ -162,6 +173,17 @@ public class Tutorial extends JFrame{
 				add(panel1);
 				panel1.setVisible(true);
 			}
+		});
+		panel2_before.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseEntered(MouseEvent e) {
+		    	panel2_before.setIcon(change_before); // 마우스를 버튼 위로 올렸을 때 이미지 변경
+		    }
+
+		    @Override
+		    public void mouseExited(MouseEvent e) {
+		    	panel2_before.setIcon(before_icon); // 마우스가 버튼을 벗어났을 때 이미지 복원
+		    }
 		});
 		panel3_next.addActionListener(new ActionListener() {
 			
@@ -173,6 +195,17 @@ public class Tutorial extends JFrame{
 				panel4.setVisible(true);
 			}
 		});
+		panel3_next.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseEntered(MouseEvent e) {
+		    	panel3_next.setIcon(change_next); // 마우스를 버튼 위로 올렸을 때 이미지 변경
+		    }
+
+		    @Override
+		    public void mouseExited(MouseEvent e) {
+		    	panel3_next.setIcon(next_icon); // 마우스가 버튼을 벗어났을 때 이미지 복원
+		    }
+		});
 		panel3_before.addActionListener(new ActionListener() {
 			
 			@Override
@@ -183,6 +216,17 @@ public class Tutorial extends JFrame{
 				panel2.setVisible(true);
 			}
 		});
+		panel3_before.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseEntered(MouseEvent e) {
+		    	panel3_before.setIcon(change_before); // 마우스를 버튼 위로 올렸을 때 이미지 변경
+		    }
+
+		    @Override
+		    public void mouseExited(MouseEvent e) {
+		    	panel3_before.setIcon(before_icon); // 마우스가 버튼을 벗어났을 때 이미지 복원
+		    }
+		});
 		panel4_before.addActionListener(new ActionListener() {
 	
 			@Override
@@ -192,6 +236,17 @@ public class Tutorial extends JFrame{
 				panel3.setVisible(true);
 			}
 			
+		});
+		panel4_before.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseEntered(MouseEvent e) {
+		    	panel4_before.setIcon(change_before); // 마우스를 버튼 위로 올렸을 때 이미지 변경
+		    }
+
+		    @Override
+		    public void mouseExited(MouseEvent e) {
+		    	panel4_before.setIcon(before_icon); // 마우스가 버튼을 벗어났을 때 이미지 복원
+		    }
 		});
 		add(panel1);
 		setSize(1209,738);
