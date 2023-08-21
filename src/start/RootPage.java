@@ -1,0 +1,51 @@
+package start;
+
+import java.awt.Cursor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class RootPage extends JFrame {
+	public static JPanel  pageNow;
+	
+	public void setPage(JPanel newPage) {
+		this.remove(pageNow); // 이전의 JPanel을 제거
+	    pageNow = newPage;
+	    this.add(pageNow); // 새로운 JPanel을 추가
+	    this.revalidate(); // JFrame을 다시 그리도록 요청
+	    this.repaint();
+	}
+	
+	public RootPage() {
+		setTitle("이상한 그림 찾기");
+		setSize(1209,738);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args) {
+		RootPage fr = new RootPage();
+				
+		StartPage startP = new StartPage();
+		NamePage nameP = new NamePage();
+		pageNow = startP;
+		fr.add(startP);
+		
+		// 시작화면 - 시작 버튼
+		startP.startBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	fr.setPage(nameP);
+            }
+        });
+		
+		
+		
+		fr.setVisible(true);
+	}
+}
