@@ -19,9 +19,6 @@ public class Tutorial extends JFrame{
 	static ImagePanel panel4=new ImagePanel("../image/Tutorial4.png");
 	
 	public Tutorial() {
-		Main();
-	}
-	public void Main() {
 		setTitle("이상한 그림 찾기");
 		panel1.setLayout(null);
 		panel1.setBounds(0,0,1209,738);
@@ -256,9 +253,4 @@ public class Tutorial extends JFrame{
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
-	public static void main(String[] args) {
-		new Tutorial();
-	}	
-
 }
