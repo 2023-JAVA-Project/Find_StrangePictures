@@ -1,26 +1,22 @@
 package score;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import tutorial.ImagePanel;
 
-public class Scorepage extends JFrame{
+public class Scorepage extends JPanel{
 	static ImagePanel score_panel=new ImagePanel("../image/score_page.png");
 	
 	public Scorepage() {
 		Main();
 	}
 	public void Main() {
-		score_panel.setLayout(null);
-		score_panel.setBounds(0,0,1209,738);
+		Frmae(score_panel);
+	}
+	private void Frmae(ImagePanel score_panel2) {
+		// TODO Auto-generated method stub
 		
-		add(score_panel);
-		setSize(1209,738);
-		setResizable(false);
-		setLocationRelativeTo(null);
-		setLayout(null);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	public static void main(String args[]) {
 		new Scorepage();
