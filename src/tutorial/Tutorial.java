@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import global.ImagePanel;
 
 public class Tutorial extends JFrame{
 	static ImagePanel panel1=new ImagePanel("../image/Tutorial1.png");
@@ -29,9 +30,7 @@ public class Tutorial extends JFrame{
 		panel4.setLayout(null);
 		panel4.setBounds(0,0,1209,738);
 		panel1.setOpaque(false);
-		     
-		
-		
+
 		ImageIcon change_next = new ImageIcon(Tutorial.class.getResource("../image/change_next.png"));
 		JButton change_nextbtn=new JButton(change_next);
 		change_nextbtn.setLayout(null);

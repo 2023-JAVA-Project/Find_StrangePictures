@@ -1,4 +1,6 @@
-package tutorial;
+package global;
+
+import tutorial.Tutorial;
 
 import java.awt.Graphics;
 import java.awt.Image;

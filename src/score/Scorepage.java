@@ -3,9 +3,8 @@ package score;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-import tutorial.ImagePanel;
+import global.ImagePanel;
 import tutorial.Tutorial;
 
 public class Scorepage extends JFrame{

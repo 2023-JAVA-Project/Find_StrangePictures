@@ -1,13 +1,7 @@
 package start;
 
-import java.awt.Cursor;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class StartPage extends JPanel {
 	
@@ -22,7 +16,11 @@ public class StartPage extends JPanel {
 	ExplainButton explainBtn;
 	
 	public StartPage() {
+<<<<<<< HEAD
+		setLayout(null); // 기본설정인 FlowLayout를 비활성화함
+=======
 		setLayout(null);
+>>>>>>> 6156d705baac6588d0f4d051ee95c70023fccd20
 		startBtn = new StartButton();
 		startBtn.setVisible(true);
 		startBtn.setBounds(190, 486, 348, 105);
