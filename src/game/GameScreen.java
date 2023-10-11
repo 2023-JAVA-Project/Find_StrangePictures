@@ -37,7 +37,7 @@ public class GameScreen extends JFrame{
 		panel.add(count_label);
 		panel.add(number);
 		panel.setLayout(null);
-		panel.setBounds(0,0,1200,700);
+		panel.setBounds(0,0,1209,738);
 		add(panel);
 
 		setResizable(false);
