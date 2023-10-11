@@ -11,11 +11,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class ExplainButton extends JButton {
-	private Image img = new ImageIcon(ExplainButton.class.getResource("../img/explainbutton.png")).getImage();
+	private Image img = new ImageIcon(ExplainButton.class.getResource("../image/explainbutton.png")).getImage();
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-        // 이미지를 버튼의 배경으로 그림
         g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
 		setOpaque(false);
 	}
@@ -24,18 +23,18 @@ public class ExplainButton extends JButton {
 		setBorderPainted(false);
 		setContentAreaFilled(false);
 		setFocusPainted(false);
-		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); // 마우스 변경
+		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-            	img = new ImageIcon(StartButton.class.getResource("../img/explainbuttonover.png")).getImage();
+            	img = new ImageIcon(StartButton.class.getResource("../image/explainbuttonover.png")).getImage();
             	
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                img = new ImageIcon(StartButton.class.getResource("../img/explainbutton.png")).getImage();
+                img = new ImageIcon(StartButton.class.getResource("../image/explainbutton.png")).getImage();
             }
         });
 	}

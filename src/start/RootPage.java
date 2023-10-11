@@ -8,15 +8,26 @@ public class RootPage extends JFrame {
 	public static JPanel  pageNow;
 	
 	public void setPage(JPanel newPage) {
+<<<<<<< HEAD
 		this.remove(pageNow); // 이전의 JPanel을 제거
 	    pageNow = newPage;
 	    this.add(pageNow); // 새로운 JPanel을 추가
 	    this.revalidate(); // JFrame을 다시 그리도록 요청
+=======
+		this.remove(pageNow);
+	    pageNow = newPage;
+	    this.add(pageNow);
+	    this.revalidate();
+>>>>>>> 6156d705baac6588d0f4d051ee95c70023fccd20
 	    this.repaint();
 	}
 	
 	public RootPage() {
+<<<<<<< HEAD
 		setTitle("이상한 그림 찾기");
+=======
+		setTitle("자꾸만 하고싶은 이상한 그림 찾기");
+>>>>>>> 6156d705baac6588d0f4d051ee95c70023fccd20
 		setSize(1209,738);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,8 +40,12 @@ public class RootPage extends JFrame {
 		NamePage nameP = new NamePage();
 		pageNow = startP;
 		fr.add(startP);
+<<<<<<< HEAD
 		
 		// 시작화면 - 시작 버튼
+=======
+
+>>>>>>> 6156d705baac6588d0f4d051ee95c70023fccd20
 		startP.startBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

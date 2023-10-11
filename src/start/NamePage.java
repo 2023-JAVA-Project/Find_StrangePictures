@@ -19,8 +19,8 @@ import javax.swing.border.Border;
 public class NamePage extends JPanel {
 	public static String uname;
 	
-	Image img = new ImageIcon(NamePage.class.getResource("../img/namepageimage.png")).getImage();
-	Image conBtn = new ImageIcon(NamePage.class.getResource("../img/confirmbutton.png")).getImage();
+	Image img = new ImageIcon(NamePage.class.getResource("../image/namepageimage.png")).getImage();
+	Image conBtn = new ImageIcon(NamePage.class.getResource("../image/confirmbutton.png")).getImage();
 	
 	public void paintComponent(Graphics g) {
 		g.drawImage(img, 0, 0, null);
@@ -28,23 +28,21 @@ public class NamePage extends JPanel {
 	}
 	
 	public NamePage() {
-		setLayout(null); // ±âº»¼³Á¤ÀÎ FlowLayout¸¦ ºñÈ°¼ºÈ­ÇÔ
-		
-		// ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä
-		JLabel explainName = new JLabel("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
-		explainName.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 48));
+		setLayout(null);
+
+		JLabel explainName = new JLabel("ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”");
+		explainName.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 48));
 		explainName.setBounds(300, 236, 600, 58);
 		explainName.setHorizontalAlignment(JTextField.CENTER);
-		
-		//ÀÌ¸§ ÀÔ·Â JTextField
-		//TODO : nameEdit ¸ğ¼­¸® ±Ã±Û°Ô
+
+		//TODO : nameEdit
 		JTextField nameEdit = new JTextField() {
 			@Override
             public void setBorder(Border border) {}
 		};
 		nameEdit.setBounds(264, 313, 674, 140);
-        nameEdit.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 90)); // nameEdit¿¡ µé¾î°¡´Â ±ÛÀÚ ¼³Á¤
-        nameEdit.setHorizontalAlignment(JTextField.CENTER); // ±ÛÀÚ°¡¿îµ¥ Á¤·Ä
+        nameEdit.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 90));
+        nameEdit.setHorizontalAlignment(JTextField.CENTER);
         
         JButton confirmBtn = new JButton() {
             
@@ -66,18 +64,18 @@ public class NamePage extends JPanel {
         confirmBtn.setBorderPainted(false);
         confirmBtn.setContentAreaFilled(false);
         confirmBtn.setFocusPainted(false);
-        confirmBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); // ¸¶¿ì½º º¯°æ
+        confirmBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); // ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½
         
         confirmBtn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-            	conBtn = new ImageIcon(NamePage.class.getResource("../img/confirmbuttonover.png")).getImage();
+            	conBtn = new ImageIcon(NamePage.class.getResource("../image/confirmbuttonover.png")).getImage();
             	
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-            	conBtn = new ImageIcon(NamePage.class.getResource("../img/confirmbutton.png")).getImage();
+            	conBtn = new ImageIcon(NamePage.class.getResource("../image/confirmbutton.png")).getImage();
             }
         });
         
