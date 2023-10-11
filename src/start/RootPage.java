@@ -14,15 +14,15 @@ public class RootPage extends JFrame {
 	public static JPanel  pageNow;
 	
 	public void setPage(JPanel newPage) {
-		this.remove(pageNow); // ÀÌÀüÀÇ JPanelÀ» Á¦°Å
+		this.remove(pageNow);
 	    pageNow = newPage;
-	    this.add(pageNow); // »õ·Î¿î JPanelÀ» Ãß°¡
-	    this.revalidate(); // JFrameÀ» ´Ù½Ã ±×¸®µµ·Ï ¿äÃ»
+	    this.add(pageNow);
+	    this.revalidate();
 	    this.repaint();
 	}
 	
 	public RootPage() {
-		setTitle("ÀÌ»óÇÑ ±×¸² Ã£±â");
+		setTitle("ìê¾¸ë§Œ í•˜ê³ ì‹¶ì€ ì´ìƒí•œ ê·¸ë¦¼ ì°¾ê¸°");
 		setSize(1209,738);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,8 +35,7 @@ public class RootPage extends JFrame {
 		NamePage nameP = new NamePage();
 		pageNow = startP;
 		fr.add(startP);
-		
-		// ½ÃÀÛÈ­¸é - ½ÃÀÛ ¹öÆ°
+
 		startP.startBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

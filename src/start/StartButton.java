@@ -10,12 +10,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class StartButton extends JButton {
-	private Image img = new ImageIcon(StartButton.class.getResource("../img/startbutton.png")).getImage();
-	ImageIcon startBtnOver = new ImageIcon(StartButton.class.getResource("../img/startbuttonover.png"));
+	private Image img = new ImageIcon(StartButton.class.getResource("../image/startbutton.png")).getImage();
+	ImageIcon startBtnOver = new ImageIcon(StartButton.class.getResource("../image/startbuttonover.png"));
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-        // ÀÌ¹ÌÁö¸¦ ¹öÆ°ÀÇ ¹è°æÀ¸·Î ±×¸²
+        // ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½
         g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
 		setOpaque(false);
 	}
@@ -24,18 +24,18 @@ public class StartButton extends JButton {
 		setBorderPainted(false);
 		setContentAreaFilled(false);
 		setFocusPainted(false);
-		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); // ¸¶¿ì½º º¯°æ
+		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-            	img = new ImageIcon(StartButton.class.getResource("../img/startbuttonover.png")).getImage();
+            	img = new ImageIcon(StartButton.class.getResource("../image/startbuttonover.png")).getImage();
             	
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                img = new ImageIcon(StartButton.class.getResource("../img/startbutton.png")).getImage();
+                img = new ImageIcon(StartButton.class.getResource("../image/startbutton.png")).getImage();
             }
         });
 		
