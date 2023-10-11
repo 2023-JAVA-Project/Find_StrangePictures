@@ -13,15 +13,26 @@ public class GameScreen extends JFrame{
 
 
 	public GameScreen() {
-		int Num=5;
-		JLabel label=new JLabel(" hi hello"+Num);
-		label.setFont(new Font("Arial",Font.BOLD ,30));
-		label.setBounds(1060,602,50,50);
+		int Num=1;
+		int Count=5;
+		JLabel count_label=new JLabel(" "+Count);
+		JLabel number=new JLabel("No."+Num);
+
+		count_label.setFont(new Font("Arial",Font.BOLD ,30));
+		count_label.setBounds(1060,602,50,50);
+
+		number.setFont(new Font("Arial",Font.BOLD ,30));
+		number.setBounds(100,580,100,100);
+
+		JProgressBar progressBar=new JProgressBar(JProgressBar.HORIZONTAL,0,100);
+		progressBar.setBounds(300,610,650,30);
+		panel.add(progressBar);
 
 		setTitle("이상한 그림 찾기");
 		setSize(1209,738);
 
-		panel.add(label);
+		panel.add(count_label);
+		panel.add(number);
 		panel.setLayout(null);
 		panel.setBounds(0,0,1200,700);
 		add(panel);
