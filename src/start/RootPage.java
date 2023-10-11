@@ -1,28 +1,22 @@
 package start;
 
-import java.awt.Cursor;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class RootPage extends JFrame {
 	public static JPanel  pageNow;
 	
 	public void setPage(JPanel newPage) {
-		this.remove(pageNow); // ÀÌÀüÀÇ JPanelÀ» Á¦°Å
+		this.remove(pageNow); // ì´ì „ì˜ JPanelì„ ì œê±°
 	    pageNow = newPage;
-	    this.add(pageNow); // »õ·Î¿î JPanelÀ» Ãß°¡
-	    this.revalidate(); // JFrameÀ» ´Ù½Ã ±×¸®µµ·Ï ¿äÃ»
+	    this.add(pageNow); // ìƒˆë¡œìš´ JPanelì„ ì¶”ê°€
+	    this.revalidate(); // JFrameì„ ë‹¤ì‹œ ê·¸ë¦¬ë„ë¡ ìš”ì²­
 	    this.repaint();
 	}
 	
 	public RootPage() {
-		setTitle("ÀÌ»óÇÑ ±×¸² Ã£±â");
+		setTitle("ì´ìƒí•œ ê·¸ë¦¼ ì°¾ê¸°");
 		setSize(1209,738);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,7 +30,7 @@ public class RootPage extends JFrame {
 		pageNow = startP;
 		fr.add(startP);
 		
-		// ½ÃÀÛÈ­¸é - ½ÃÀÛ ¹öÆ°
+		// ì‹œì‘í™”ë©´ - ì‹œì‘ ë²„íŠ¼
 		startP.startBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
