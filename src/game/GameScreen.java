@@ -8,13 +8,14 @@ import java.awt.*;
 public class GameScreen extends JFrame{
 
 	static ImagePanel panel = new ImagePanel("../image/GameFrame.png");
-
-
-
+	int Num=1;
+	int Count=5;
+	Timer timerBar;
+	Thread threadBar;
+	int second=30;
 
 	public GameScreen() {
-		int Num=1;
-		int Count=5;
+
 		JLabel count_label=new JLabel(" "+Count);
 		JLabel number=new JLabel("No."+Num);
 
@@ -22,11 +23,13 @@ public class GameScreen extends JFrame{
 		count_label.setBounds(1060,602,50,50);
 
 		number.setFont(new Font("Arial",Font.BOLD ,30));
-		number.setBounds(100,580,100,100);
+		number.setBounds(100,575,100,100);
+		number.setBounds(100,575,100,100);
 
-		JProgressBar progressBar=new JProgressBar(JProgressBar.HORIZONTAL,0,100);
-		progressBar.setBounds(300,610,650,30);
-		panel.add(progressBar);
+		timerBar=new Timer(second);
+		threadBar=new Thread(timerBar);
+		threadBar.start();
+		panel.add(timerBar);
 
 		setTitle("이상한 그림 찾기");
 		setSize(1209,738);
@@ -43,7 +46,6 @@ public class GameScreen extends JFrame{
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-
 	public static void main(String[] args) {
 		new GameScreen();
 	}
