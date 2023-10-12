@@ -1,5 +1,7 @@
 package start;
 
+import tutorial.Tutorial;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,9 +40,11 @@ public class RootPage extends JFrame {
             	fr.setPage(nameP);
             }
         });
-		
-		
-		
+		startP.explainBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) { new Tutorial(); }
+		});
+
 		fr.setVisible(true);
 	}
 }
