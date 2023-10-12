@@ -1,5 +1,8 @@
 package start;
 
+import game.GameScreen;
+import tutorial.Tutorial;
+
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -21,7 +24,7 @@ public class NamePage extends JPanel {
 	
 	Image img = new ImageIcon(NamePage.class.getResource("../image/namepageimage.png")).getImage();
 	Image conBtn = new ImageIcon(NamePage.class.getResource("../image/confirmbutton.png")).getImage();
-	
+	GameScreen gameP;
 	public void paintComponent(Graphics g) {
 		g.drawImage(img, 0, 0, null);
 		setOpaque(false);
@@ -57,7 +60,9 @@ public class NamePage extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
             	//RootPage.changePage(this);
+                new GameScreen();
             }
+
         });
         
         confirmBtn.setBounds(482, 499, 367, 105);

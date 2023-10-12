@@ -95,6 +95,7 @@ public class Tutorial extends JPanel {
 		panel1_next.setFocusPainted(false);
 		panel1.add(panel1_next);
 
+		panel2_next = new JButton(next_icon);
 		panel2_next.setLayout(null);
 		panel2_next=new JButton(next_icon);
 		panel2_next.setBounds(1070,310,80,80);
