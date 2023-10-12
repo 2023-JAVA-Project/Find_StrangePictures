@@ -31,6 +31,7 @@ public class RootPage extends JFrame {
 				
 		StartPage startP = new StartPage();
 		NamePage nameP = new NamePage();
+		Tutorial tutorialP=new Tutorial();
 		pageNow = startP;
 		fr.add(startP);
 
@@ -42,7 +43,10 @@ public class RootPage extends JFrame {
         });
 		startP.explainBtn.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) { new Tutorial(); }
+			public void actionPerformed(ActionEvent e) {
+				//fr.add(tutorialP);
+				fr.setPage(tutorialP);
+			}
 		});
 
 		fr.setVisible(true);
