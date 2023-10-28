@@ -1,6 +1,8 @@
 package start;
 
 import game.GameScreen;
+import global.Controller;
+import global.Model;
 import tutorial.Tutorial;
 
 import java.awt.Cursor;
@@ -46,7 +48,8 @@ public class NamePage extends JPanel {
 		nameEdit.setBounds(264, 313, 674, 140);
         nameEdit.setFont(new Font("맑은 고딕", Font.PLAIN, 90));
         nameEdit.setHorizontalAlignment(JTextField.CENTER);
-        
+
+        Controller dao=new Controller();
         JButton confirmBtn = new JButton() {
             
 
@@ -60,6 +63,7 @@ public class NamePage extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
             	//RootPage.changePage(this);
+                dao.insertRank(new Model(nameEdit,0));
                 new GameScreen();
             }
 
