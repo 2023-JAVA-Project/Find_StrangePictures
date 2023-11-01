@@ -5,7 +5,7 @@ import global.ImagePanel;
 import javax.swing.*;
 import java.awt.*;
 
-public class GameScreen extends JFrame{
+public class GamePage extends JPanel{
 
 	static ImagePanel panel = new ImagePanel("../image/GameFrame.png");
 	int Num=1;
@@ -16,14 +16,7 @@ public class GameScreen extends JFrame{
 
 	int[][] labelLoc = {{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{1,2,3,4,5,6,7,8,9,10},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130}}; // 두번째 이미지부터 넣어야함 (7개만)
 
-	public GameScreen() {
-		setTitle("이상한 그림 찾기");
-		setSize(1209,738);
-		setResizable(false);
-		setLocationRelativeTo(null);
-		setLayout(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+	public GamePage() {
 		JLabel count_label=new JLabel(" "+Count);
 		JLabel number=new JLabel("No."+Num);
 
@@ -66,8 +59,4 @@ public class GameScreen extends JFrame{
 			}
 		}
 	}
-	public static void main(String[] args) {
-		new GameScreen();
-	}
-
 }

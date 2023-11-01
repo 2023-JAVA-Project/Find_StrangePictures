@@ -43,4 +43,38 @@ public class Controller {
             e.printStackTrace();
         }
     }
+
+    public ArrayList<Model> readData() {
+        ArrayList<Model> arr = new ArrayList<Model>();
+
+        try {
+            String sql = "SELECT name, score FROM java_db.rank ORDER BY score ASC";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                String name = rs.getString("name");
+                int score = rs.getInt("score");
+                JTextField str=new JTextField(name);
+                arr.add(new Model(str, score));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return arr;
+    }
+
+
+
+
+
 }
