@@ -1,18 +1,15 @@
 package global;
 
-import com.mysql.cj.protocol.Resultset;
-import global.Model;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
+import javax.swing.*;
+import javax.xml.crypto.Data;
+import java.awt.*;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class Controller {
     Connection conn = null;
     PreparedStatement pstmt=null;
-    Resultset rs = null;
+    ResultSet rs = null;
     Statement st = null;
 
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
