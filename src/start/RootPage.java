@@ -1,5 +1,6 @@
 package start;
 
+import game.GamePage;
 import tutorial.Tutorial;
 
 import javax.swing.*;
@@ -32,6 +33,7 @@ public class RootPage extends JFrame {
 		StartPage startP = new StartPage();
 		NamePage nameP = new NamePage();
 		Tutorial tutorialP=new Tutorial();
+		GamePage gameP=new GamePage();
 		pageNow = startP;
 		fr.add(startP);
 
@@ -48,7 +50,12 @@ public class RootPage extends JFrame {
 				fr.setPage(tutorialP);
 			}
 		});
-
+		nameP.confirmBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				fr.setPage(gameP);
+			}
+		});
 		fr.setVisible(true);
 	}
 }
