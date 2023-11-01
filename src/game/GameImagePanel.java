@@ -11,8 +11,7 @@ import java.util.Vector;
 public class GameImagePanel extends JPanel {
     Vector<ImageIcon> gameImgs = new Vector<>(8);
 //    Image img = getIcon("../image/game/g1.png", 1541, 764).getImage();
-//    Image img = new ImageIcon(GameScreen.class.getResource("../image/game/g1.png")).getImage();
-    Image img = Toolkit.getDefaultToolkit().getImage("../image/game/g1.png").getScaledInstance(1541, 764, Image.SCALE_SMOOTH);
+    Image img = new ImageIcon(GameScreen.class.getResource("../image/game/g1.png")).getImage().getScaledInstance(900, 400, Image.SCALE_SMOOTH);
     static JLabel[] touchLabel = new JLabel[5];
 
     @Override
@@ -23,7 +22,7 @@ public class GameImagePanel extends JPanel {
 
     public GameImagePanel() {
         for(int i = 0; i < gameImgs.size(); i++){
-            gameImgs.add(getIcon("../image/image/g" + (i + 1) + ".png", 1541, 764));
+            gameImgs.add(new ImageIcon(GameScreen.class.getResource("../image/game/g" + (i + 2) + ".png").getImage().getScaledInstance(900, 400, Image.SCALE_SMOOTH)));
 //            gameImgs.add(new ImageIcon(GameScreen.class.getResource("../image/game/g"+(i+1)+".png")));
         }
 
@@ -39,7 +38,7 @@ public class GameImagePanel extends JPanel {
             });
         }
         setLayout(null);
-        setBounds(0,0,1000,500);
+        setBounds(150,140,900,400); // 패널 위치, 사이즈
         setBackground(Color.CYAN);
     }
 
