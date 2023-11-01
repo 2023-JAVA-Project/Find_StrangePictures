@@ -14,7 +14,15 @@ public class GameScreen extends JFrame{
 	Thread threadBar;
 	int second=30;
 
+	int[][] labelLoc = {{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{1,2,3,4,5,6,7,8,9,10},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130}}; // 두번째 이미지부터 넣어야함 (7개만)
+
 	public GameScreen() {
+		setTitle("이상한 그림 찾기");
+		setSize(1209,738);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setLayout(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JLabel count_label=new JLabel(" "+Count);
 		JLabel number=new JLabel("No."+Num);
@@ -31,20 +39,32 @@ public class GameScreen extends JFrame{
 		threadBar.start();
 		panel.add(timerBar);
 
-		setTitle("이상한 그림 찾기");
-		setSize(1209,738);
+		// 틀린그림 이미지 Panel
+		GameImagePanel gameImg = new GameImagePanel();
 
 		panel.add(count_label);
 		panel.add(number);
+		panel.add(gameImg);
 		panel.setLayout(null);
 		panel.setBounds(0,0,1209,738);
 		add(panel);
 
-		setResizable(false);
-		setLocationRelativeTo(null);
-		setLayout(null);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// 시간 다 되기 전까지
+		while(timerBar.getWidth() > 0) {
+//			gameImg.touchLabel[i]=jk;
+			if(Count == 0) {
+				gameImg.uploadImage();
+				Count = 5; // 다시 5로 초기화
+			}
+
+			// 투명 label 다시 보이게 하기
+			for (int j = 0; j < gameImg.touchLabel.length; j++){ // 투명 label array 5개
+				gameImg.replaceTouchLabel(labelLoc[j]);
+				gameImg.touchLabel[j].setVisible(true);
+			}
+		}
 	}
 	public static void main(String[] args) {
 		new GameScreen();
