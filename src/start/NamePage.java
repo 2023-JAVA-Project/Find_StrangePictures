@@ -1,9 +1,8 @@
 package start;
 
-import game.GameScreen;
+import game.GamePage;
 import global.Controller;
 import global.Model;
-import tutorial.Tutorial;
 
 import java.awt.Cursor;
 import java.awt.Font;
@@ -26,12 +25,21 @@ public class NamePage extends JPanel {
 	
 	Image img = new ImageIcon(NamePage.class.getResource("../image/namepageimage.png")).getImage();
 	Image conBtn = new ImageIcon(NamePage.class.getResource("../image/confirmbutton.png")).getImage();
-	GameScreen gameP;
+	GamePage gameP;
 	public void paintComponent(Graphics g) {
 		g.drawImage(img, 0, 0, null);
 		setOpaque(false);
 	}
-	
+
+    JButton confirmBtn = new JButton() {
+
+
+        public void paintComponent(Graphics g) {
+            g.drawImage(img, 0, 0, null);
+            setOpaque(false);
+        }
+    };
+
 	public NamePage() {
 		setLayout(null);
 
@@ -50,21 +58,13 @@ public class NamePage extends JPanel {
         nameEdit.setHorizontalAlignment(JTextField.CENTER);
 
         Controller dao=new Controller();
-        JButton confirmBtn = new JButton() {
-            
 
-            public void paintComponent(Graphics g) {
-                g.drawImage(img, 0, 0, null);
-                setOpaque(false);
-            }
-        };
         
         confirmBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	//RootPage.changePage(this);
                 dao.insertRank(new Model(nameEdit,0));
-                new GameScreen();
             }
 
         });

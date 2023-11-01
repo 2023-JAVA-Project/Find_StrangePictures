@@ -1,6 +1,6 @@
 package game;
 
-import tutorial.ImagePanel;
+import global.ImagePanel;
 
 import javax.swing.*;
 

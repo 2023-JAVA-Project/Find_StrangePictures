@@ -8,7 +8,7 @@ public class Model {
     int score=0;
     Date date;
 
-    public Model(JTextField name,int score){
+    public Model(JTextField name, int score){
            this.name=name;
 //        this.date=date;
         this.score=score;
