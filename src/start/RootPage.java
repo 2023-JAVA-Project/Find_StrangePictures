@@ -32,10 +32,10 @@ public class RootPage extends JFrame {
 				
 		StartPage startP = new StartPage();
 		NamePage nameP = new NamePage();
-		Tutorial tutorialP=new Tutorial();
-		GamePage gameP=new GamePage();
+		Tutorial tutorialP = new Tutorial();
+		GamePage gameP = new GamePage();
 		pageNow = startP;
-		fr.add(startP);
+		fr.add(gameP); // TODO : startP로 바꾸기
 
 		startP.startBtn.addActionListener(new ActionListener() {
             @Override
