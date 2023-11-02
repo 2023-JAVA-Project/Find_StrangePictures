@@ -6,7 +6,7 @@ public class SQLtest {
 
         String server = "localhost";
         String user_name = "root";
-        String password = "1234  ";
+        String password = "1111";
 
         // JDBC 드라이버 로드
         try {

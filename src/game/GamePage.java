@@ -7,7 +7,11 @@ import java.awt.*;
 
 public class GamePage extends JPanel{
 
-	static ImagePanel panel = new ImagePanel("../image/GameFrame.png");
+	static Image img = new ImageIcon(GamePage.class.getResource("../image/GameFrame.png")).getImage();
+	public void paintComponent(Graphics g) {
+		g.drawImage(img, 0, 0, null);
+		setOpaque(false);
+	}
 	int Num=1;
 	int Count=5;
 	Timer timerBar;
@@ -28,22 +32,27 @@ public class GamePage extends JPanel{
 		number.setBounds(100,575,100,100);
 
 		timerBar=new Timer(second);
-		threadBar=new Thread(timerBar);
+		add(timerBar);
+		threadBar = new Thread(timerBar);
 		threadBar.start();
-		panel.add(timerBar);
 
 		// 틀린그림 이미지 Panel
 		GameImagePanel gameImg = new GameImagePanel();
-
-		panel.add(count_label);
-		panel.add(number);
-		panel.add(gameImg);
-		panel.setLayout(null);
-		panel.setBounds(0,0,1209,738);
+		add(count_label);
+		add(number);
+		add(gameImg);
+		setLayout(null);
+		setBounds(0,0,1209,738);
 
 		setLayout(null);
-		panel.setVisible(true);
-		add(panel);
+		setVisible(true);
+
+		add(count_label);
+		add(number);
+		add(gameImg);
+		setLayout(null);
+		setBounds(0,0,1209,738);
+		setVisible(true);
 
 
 		// 시간 다 되기 전까지
