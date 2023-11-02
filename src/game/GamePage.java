@@ -40,9 +40,11 @@ public class GamePage extends JPanel{
 		panel.add(gameImg);
 		panel.setLayout(null);
 		panel.setBounds(0,0,1209,738);
+
+		setLayout(null);
+		panel.setVisible(true);
 		add(panel);
 
-		setVisible(true);
 
 		// 시간 다 되기 전까지
 		while(timerBar.getWidth() > 0) {

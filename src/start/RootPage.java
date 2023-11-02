@@ -56,6 +56,7 @@ public class RootPage extends JFrame {
 				fr.setPage(gameP);
 			}
 		});
+
 		fr.setVisible(true);
 	}
 }
