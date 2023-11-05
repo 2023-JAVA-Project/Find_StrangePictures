@@ -38,6 +38,14 @@ public class GamePage extends JPanel{
 
 		// 틀린그림 이미지 Panel
 		GameImagePanel gameImg = new GameImagePanel();
+		add(count_label);
+		add(number);
+		add(gameImg);
+		setLayout(null);
+		setBounds(0,0,1209,738);
+
+		setLayout(null);
+		setVisible(true);
 
 		add(count_label);
 		add(number);
@@ -45,6 +53,7 @@ public class GamePage extends JPanel{
 		setLayout(null);
 		setBounds(0,0,1209,738);
 		setVisible(true);
+
 
 		// 시간 다 되기 전까지
 		while(timerBar.getWidth() > 0) {
