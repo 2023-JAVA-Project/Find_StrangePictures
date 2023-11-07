@@ -15,7 +15,7 @@ public class Controller {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306";
     private static final String user = "root";
-    private static final String pw= "1111";
+    private static final String pw= "1234";
 
     public Controller() {
         try {
