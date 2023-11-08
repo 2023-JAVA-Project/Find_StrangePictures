@@ -56,18 +56,18 @@ public class GamePage extends JPanel{
 
 
 		// 시간 다 되기 전까지
-		while(timerBar.getWidth() > 0) {
-//			gameImg.touchLabel[i]=jk;
-			if(Count == 0) {
-				gameImg.uploadImage();
-				Count = 5; // 다시 5로 초기화
-			}
-
-			// 투명 label 다시 보이게 하기
-			for (int j = 0; j < gameImg.touchLabel.length; j++){ // 투명 label array 5개
-				gameImg.replaceTouchLabel(labelLoc[j]);
-				gameImg.touchLabel[j].setVisible(true);
-			}
-		}
+//		while(timerBar.getWidth() > 0) {
+////			gameImg.touchLabel[i]=jk;
+//			if(Count == 0) {
+//				gameImg.uploadImage();
+//				Count = 5; // 다시 5로 초기화
+//			}
+//
+//			// 투명 label 다시 보이게 하기
+//			for (int j = 0; j < gameImg.touchLabel.length; j++){ // 투명 label array 5개
+//				gameImg.replaceTouchLabel(labelLoc[j]);
+//				gameImg.touchLabel[j].setVisible(true);
+//			}
+//		}
 	}
 }
