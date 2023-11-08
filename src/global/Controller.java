@@ -1,23 +1,24 @@
 package global;
 
 import javax.swing.*;
-import javax.xml.crypto.Data;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.*;
-import java.util.ArrayList;
 
 public class Controller {
     Connection conn = null;
-    PreparedStatement pstmt=null;
+    PreparedStatement pstmt = null;
     ResultSet rs = null;
     Statement st = null;
+    static DefaultTableModel model;
 
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306";
     private static final String user = "root";
-    private static final String pw= "1234";
+    private static final String pw = "1234";
 
     public Controller() {
+
         try {
             Class.forName(DRIVER);
         } catch (ClassNotFoundException e) {
@@ -25,7 +26,7 @@ public class Controller {
             e.printStackTrace();
         }
         try {
-            conn = DriverManager.getConnection(URL, user,pw);
+            conn = DriverManager.getConnection(URL, user, pw);
             System.out.println("연결 완료!");
         } catch (SQLException e) {
             System.err.println("연결 오류: " + e.getMessage());
@@ -42,21 +43,20 @@ public class Controller {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
-    public ArrayList<Model> readData() {
-        ArrayList<Model> arr = new ArrayList<Model>();
+    public void readData(DefaultTableModel model) {
 
         try {
-            String sql = "SELECT name, score FROM java_db.rank ORDER BY score ASC";
+            String sql = "SELECT name, score FROM java_db.rank ORDER BY score DESC";
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 String name = rs.getString("name");
                 int score = rs.getInt("score");
-                JTextField str=new JTextField(name);
-                arr.add(new Model(str, score));
+                model.addRow(new Object[]{name, score});
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -69,12 +69,5 @@ public class Controller {
                 e.printStackTrace();
             }
         }
-
-        return arr;
     }
-
-
-
-
-
 }
