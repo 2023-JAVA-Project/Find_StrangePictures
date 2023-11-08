@@ -5,13 +5,12 @@ import global.ImagePanel;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
 public class rankingScreen extends JFrame {
     static ImagePanel panel = new ImagePanel("../image/rankPage.png");
     public rankingScreen(){
-
-
-
+        
         setTitle("이상한 그림 찾기");
         setSize(1209,738);
         panel.setLayout(null);
@@ -43,7 +42,6 @@ public class rankingScreen extends JFrame {
         setLayout(null);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
     public static void main(String[] args) {
         new rankingScreen();
