@@ -140,4 +140,6 @@ fabric.properties
 hs_err_pid*
 replay_pid*
 
+Find_StrangePictures.iml
+
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij
