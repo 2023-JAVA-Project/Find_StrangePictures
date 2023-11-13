@@ -21,6 +21,7 @@ public class rankingScreen extends JFrame {
         JTable table = new JTable();
         DefaultTableModel model =(DefaultTableModel) table.getModel(); ;
 
+        model.addColumn("랭킹");
         model.addColumn("이름");
         model.addColumn("점수");
 
@@ -31,7 +32,7 @@ public class rankingScreen extends JFrame {
         scrollPane.setBounds(400,250, 500, 400);
         add(scrollPane);
 
-        read.readData(model);
+        read.readData(model,10);
         add(panel);
 
 
