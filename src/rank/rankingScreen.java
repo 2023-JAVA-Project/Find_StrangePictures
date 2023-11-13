@@ -15,7 +15,6 @@ public class rankingScreen extends JFrame {
         setSize(1209,738);
         panel.setLayout(null);
         panel.setBounds(0,0,1209,738);
-        add(panel);
 
         Controller read=new Controller();
 
@@ -28,14 +27,13 @@ public class rankingScreen extends JFrame {
         table.setShowGrid(false);
         table.getTableHeader().setReorderingAllowed(false);
         table.getTableHeader().setResizingAllowed(false);
-
-
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setBounds(400,250, 500, 400);
+        add(scrollPane);
 
         read.readData(model);
+        add(panel);
 
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(400,200, 500, 400);
-        add(scrollPane);
 
         setResizable(false);
         setLocationRelativeTo(null);
