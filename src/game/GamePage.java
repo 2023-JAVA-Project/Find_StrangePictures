@@ -16,6 +16,11 @@ public class GamePage extends JPanel{
 	}
 	int Num=1;
 	static int Count=5;
+
+	public static int imgCnt = 0; // 몇 번째 이미지인지 나타냄
+
+	public static boolean gameEnd = false;
+
 	Timer timerBar;
 	Thread threadBar;
 	int second=30;

@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.net.URL;
 
+import static game.GamePage.gameEnd;
 import static game.GamePage.updateCountLabel;
 
 public class GameImagePanel extends JPanel {
@@ -17,7 +18,7 @@ public class GameImagePanel extends JPanel {
     Image img = new ImageIcon(GameImagePanel.class.getResource("../image/game/g1.png")).getImage().getScaledInstance(900, 400, Image.SCALE_SMOOTH);
     static JLabel[] touchLabel = new JLabel[5];
 
-    static int imgCnt = 0; // 몇 번째 이미지인지 나타냄
+
 
     public GameImagePanel(int labelPosition[][]) {
         setLayout(null);
@@ -44,23 +45,30 @@ public class GameImagePanel extends JPanel {
 
                     JLabel clickedLabel = (JLabel) me.getSource();
                     GamePage.Count--;
-//                    System.out.println(GamePage.Count);
+
                     updateCountLabel(); // GamePage::화면에 Count 다시 씀
 
                     clickedLabel.setVisible(false);
 
                     // 다 찾으면
                     if(GamePage.Count == 0) {
+
                         uploadImage(); // 이미지 바꾸는 메서드
+                        GamePage.imgCnt++; // 몇 번째 이미지인지
 
-                        replaceTouchLabel(labelPosition[imgCnt]); // 터치라벨 재배치 시키는 메서드
+                        if (GamePage.imgCnt != 6) {
+                            replaceTouchLabel(labelPosition[GamePage.imgCnt]); // 터치라벨 재배치 시키는 메서드
 
-                        for (int j = 0; j < touchLabel.length - 1; j++){ // 투명 label array 5개
+                            System.out.println(GamePage.imgCnt);
+
+                            for (int j = 0; j < touchLabel.length - 1; j++) { // 투명 label array 5개
 //                            replaceTouchLabel(labelPosition[j+1]);
-                            touchLabel[j].setVisible(true);
+                                touchLabel[j].setVisible(true);
+                            }
+                            GamePage.Count = 5; // 다시 5로 초기화
+                            updateCountLabel();
                         }
-                        GamePage.Count = 5; // 다시 5로 초기화
-                        updateCountLabel();
+
                     }
                 }
             });
@@ -88,10 +96,12 @@ public class GameImagePanel extends JPanel {
     }
 
     public void uploadImage() {
-        imgCnt++; // 몇 번째 이미지인지
-        if (imgCnt < gameImgs.size()) {
-            img = new ImageIcon(gameImgs.get(imgCnt)).getImage().getScaledInstance(900, 400, Image.SCALE_SMOOTH);
+        if (GamePage.imgCnt+1 < gameImgs.size()) {
+            img = new ImageIcon(gameImgs.get(GamePage.imgCnt+1)).getImage().getScaledInstance(900, 400, Image.SCALE_SMOOTH);
             repaint(); // 패널을 다시 그리도록 요청
+        } else {
+            GamePage.gameEnd = true;
+//            System.out.println(gameEnd);
         }
     }
 }

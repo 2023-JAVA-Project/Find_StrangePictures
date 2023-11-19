@@ -1,16 +1,14 @@
 package score;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import global.ImagePanel;
 import tutorial.Tutorial;
 
-public class Scorepage extends JFrame{
+public class ScorePage extends JPanel {
 	static ImagePanel score_panel=new ImagePanel("../image/score_page.png");
 	
-	public Scorepage() {
+	public ScorePage() {
 		
 		score_panel.setLayout(null);
 		score_panel.setBounds(0,0,1209,738);
@@ -39,10 +37,14 @@ public class Scorepage extends JFrame{
 
 		
 		setSize(1209,738);
-		setResizable(false);
-		setLocationRelativeTo(null);
 		setLayout(null);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+
+//	public static void main(String[] args) {
+//		ScorePage s = new ScorePage();
+//
+//		s.setVisible(true);
+//	}
+
 }
