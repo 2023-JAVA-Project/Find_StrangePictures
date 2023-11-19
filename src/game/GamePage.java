@@ -5,6 +5,8 @@ import global.ImagePanel;
 import javax.swing.*;
 import java.awt.*;
 
+import static game.GameImagePanel.replaceTouchLabel;
+
 public class GamePage extends JPanel{
 
 	static Image img = new ImageIcon(GamePage.class.getResource("../image/GameFrame.png")).getImage();
@@ -13,15 +15,25 @@ public class GamePage extends JPanel{
 		setOpaque(false);
 	}
 	int Num=1;
-	int Count=5;
+	static int Count=5;
 	Timer timerBar;
 	Thread threadBar;
 	int second=30;
 
-	int[][] labelLoc = {{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{1,2,3,4,5,6,7,8,9,10},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130},{0, 3, 55, 612, 100, 23, 280, 70, 460, 130}}; // 두번째 이미지부터 넣어야함 (7개만)
+	static JLabel count_label;
+
+	// 900,400
+	int[][] labelLoc = {
+			{555, 120, 744, 76, 670, 320, 690, 140, 464, 255}, // 1번 이미지 위치
+			{800, 45, 690, 100, 700, 310, 450, 240, 490, 50}, // 2번 이미지 위치
+			{690, 190, 800, 330, 540, 230, 635, 50, 840, 40}, // 3번
+			{810, 350, 470, 340, 540, 270, 700, 210, 820, 110}, // 4번
+			{840, 110, 730, 285, 565, 70, 630, 200, 642, 110}, // 5번
+			{530, 330, 600, 263, 785, 300, 600, 90, 765, 170} // 6번
+	}; // 두번째 이미지부터 넣어야함 (7개만)
 
 	public GamePage() {
-		JLabel count_label=new JLabel(" "+Count);
+		count_label=new JLabel(" "+Count);
 		JLabel number=new JLabel("No."+Num);
 
 		count_label.setFont(new Font("Arial",Font.BOLD ,30));
@@ -36,7 +48,9 @@ public class GamePage extends JPanel{
 		threadBar.start();
 
 		// 틀린그림 이미지 Panel
-		GameImagePanel gameImg = new GameImagePanel();
+		GameImagePanel gameImg = new GameImagePanel(labelLoc);
+		replaceTouchLabel(labelLoc[0]);
+
 		add(count_label);
 		add(number);
 		add(gameImg);
@@ -52,21 +66,9 @@ public class GamePage extends JPanel{
 		setLayout(null);
 		setBounds(0,0,1209,738);
 		setVisible(true);
+	}
 
-
-		// 시간 다 되기 전까지
-//		while(timerBar.getWidth() > 0) {
-////			gameImg.touchLabel[i]=jk;
-//			if(Count == 0) {
-//				gameImg.uploadImage();
-//				Count = 5; // 다시 5로 초기화
-//			}
-//
-//			// 투명 label 다시 보이게 하기
-//			for (int j = 0; j < gameImg.touchLabel.length; j++){ // 투명 label array 5개
-//				gameImg.replaceTouchLabel(labelLoc[j]);
-//				gameImg.touchLabel[j].setVisible(true);
-//			}
-//		}
+	static public void updateCountLabel() {
+		count_label.setText(" " + Count);
 	}
 }
