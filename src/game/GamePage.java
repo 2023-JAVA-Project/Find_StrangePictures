@@ -16,6 +16,7 @@ public class GamePage extends JPanel{
 	}
 	int Num=1;
 	static int Count=5;
+	public static int Score = 0;
 
 	public static int imgCnt = 0; // 몇 번째 이미지인지 나타냄
 
@@ -55,6 +56,8 @@ public class GamePage extends JPanel{
 		// 틀린그림 이미지 Panel
 		GameImagePanel gameImg = new GameImagePanel(labelLoc);
 		replaceTouchLabel(labelLoc[0]);
+
+
 
 		add(count_label);
 		add(number);
