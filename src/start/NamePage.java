@@ -31,7 +31,7 @@ public class NamePage extends JPanel {
 		setOpaque(false);
 	}
 
-    JButton confirmBtn = new JButton() {
+    public JButton confirmBtn = new JButton() {
 
 
         public void paintComponent(Graphics g) {

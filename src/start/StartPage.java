@@ -12,8 +12,8 @@ public class StartPage extends JPanel {
 		setOpaque(false);
 	}
 	
-	StartButton startBtn;
-	ExplainButton explainBtn;
+	public StartButton startBtn;
+	public ExplainButton explainBtn;
 	
 	public StartPage() {
 		setLayout(null); // 기본설정인 FlowLayout를 비활성화함
