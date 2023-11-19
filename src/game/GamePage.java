@@ -41,7 +41,6 @@ public class GamePage extends JPanel{
 
 		number.setFont(new Font("Arial",Font.BOLD ,30));
 		number.setBounds(100,575,100,100);
-		number.setBounds(100,575,100,100);
 
 		timerBar=new Timer(second);
 		add(timerBar);

@@ -2,7 +2,6 @@ package global;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.sql.*;
 
 public class Controller {
@@ -46,17 +45,21 @@ public class Controller {
 
     }
 
-    public void readData(DefaultTableModel model) {
+    public void readData(JLabel[] nameLabels, JLabel[] scoreLabels) {
 
         try {
-            String sql = "SELECT name, score FROM java_db.rank ORDER BY score DESC";
+            String sql = "SELECT id,name, score FROM java_db.rank ORDER BY score DESC LIMIT ?";
             pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, 5);
             rs = pstmt.executeQuery();
 
-            while (rs.next()) {
+            int count=0;
+            while (rs.next()&&count<5) {
                 String name = rs.getString("name");
                 int score = rs.getInt("score");
-                model.addRow(new Object[]{name, score});
+                nameLabels[count].setText(name);
+                scoreLabels[count].setText(Integer.toString(score));
+                count++;
             }
         } catch (SQLException e) {
             e.printStackTrace();
