@@ -35,7 +35,7 @@ public class Controller {
 
     public void insertRank(Model model) {
         try {
-            String sql = "INSERT INTO java_db.rank (name,score) VALUES (?,0)";
+            String sql = "INSERT INTO java_db.rank (name,score) VALUES (?,?)";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, model.name.getText());
             pstmt.executeUpdate();

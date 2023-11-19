@@ -43,7 +43,7 @@ import tutorial.Tutorial;
 			startP.startBtn.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					fr.setPage(nameP);
+					fr.setPage(gameP);
 				}
 			});
 			startP.explainBtn.addActionListener(new ActionListener() {
@@ -56,7 +56,7 @@ import tutorial.Tutorial;
 			nameP.confirmBtn.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					fr.setPage(gameP);
+					fr.setPage(scoreP);
 				}
 			});
 
