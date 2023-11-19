@@ -1,5 +1,7 @@
 package game;
 
+import score.ScorePage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -45,6 +47,9 @@ public class GameImagePanel extends JPanel {
 
                     JLabel clickedLabel = (JLabel) me.getSource();
                     GamePage.Count--;
+                    GamePage.Score += 10;
+
+//                    System.out.println(GamePage.Score);
 
                     updateCountLabel(); // GamePage::화면에 Count 다시 씀
 
@@ -67,6 +72,10 @@ public class GameImagePanel extends JPanel {
                             }
                             GamePage.Count = 5; // 다시 5로 초기화
                             updateCountLabel();
+                        }
+
+                        if(GamePage.gameEnd == true) {
+
                         }
 
                     }
