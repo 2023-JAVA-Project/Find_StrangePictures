@@ -57,14 +57,14 @@ public class NamePage extends JPanel {
         nameEdit.setFont(new Font("맑은 고딕", Font.PLAIN, 90));
         nameEdit.setHorizontalAlignment(JTextField.CENTER);
 
-        Controller dao=new Controller();
+        Controller conn=new Controller();
 
         
         confirmBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	//RootPage.changePage(this);
-                dao.insertRank(new Model(nameEdit,0));
+                conn.insertRank(new Model(nameEdit, GamePage.Score));
             }
 
         });
