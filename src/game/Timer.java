@@ -19,7 +19,6 @@ public class Timer extends JLabel implements Runnable {
         setBackground(color);
         setOpaque(true);
         setBounds(300,610,650,30);
-
         this.second=second;
     }
     @Override
@@ -37,7 +36,6 @@ public class Timer extends JLabel implements Runnable {
                 timerFinished = true;
                 break;
             }
-
         }
     }
 }
