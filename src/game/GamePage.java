@@ -1,7 +1,5 @@
 package game;
 
-import root.RootPage;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -9,6 +7,7 @@ import java.awt.event.MouseEvent;
 
 import static game.GameImagePanel.replaceTouchLabel;
 import static game.GameImagePanel.touchLabel;
+import root.RootPage;
 
 public class GamePage extends JPanel{
 
@@ -25,8 +24,8 @@ public class GamePage extends JPanel{
 
 	public static boolean gameEnd = false;
 
-	Timer timerBar;
-	Thread threadBar;
+	public static Timer timerBar;
+	public static Thread threadBar;
 	int second=30;
 
 	static JLabel count_label;
@@ -59,7 +58,7 @@ public class GamePage extends JPanel{
 				SwingUtilities.invokeLater(() -> fr.showNamePage());
 			}
 		});
-		threadBar.start();
+
 
 
 		// 틀린그림 이미지 Panel

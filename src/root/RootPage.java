@@ -60,8 +60,10 @@ public class RootPage extends JFrame {
         RootPage fr = new RootPage();
 
         startPage.startBtn.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
+                GamePage.threadBar.start();
                 fr.showGamePage();
             }
         });
