@@ -2,12 +2,17 @@ package score;
 
 import javax.swing.*;
 
+import game.GamePage;
 import global.ImagePanel;
+import root.RootPage;
 import tutorial.Tutorial;
+
+import java.awt.*;
 
 public class ScorePage extends JPanel {
 	static ImagePanel score_panel=new ImagePanel("../image/score_page.png");
-	
+	public static JButton restart;
+	public static JButton ranking;
 	public ScorePage() {
 		
 		score_panel.setLayout(null);
@@ -16,9 +21,11 @@ public class ScorePage extends JPanel {
 		ImageIcon restart_icon = new ImageIcon(Tutorial.class.getResource("../image/restart_btn.png"));
 		ImageIcon ranking_icon = new ImageIcon(Tutorial.class.getResource("../image/ranking_view_btn.png"));
 		
-		JButton restart=new JButton(restart_icon);
-		JButton ranking=new JButton(ranking_icon);
-		
+		restart=new JButton(restart_icon);
+		ranking=new JButton(ranking_icon);
+
+
+
 		restart.setLayout(null);
 		restart.setBounds(200,520,300,100);
 		restart.setBorderPainted(false);
@@ -30,7 +37,9 @@ public class ScorePage extends JPanel {
 		ranking.setBorderPainted(false);
 		ranking.setContentAreaFilled(false);
 		ranking.setFocusPainted(false);
-		
+
+
+		//score_panel.add(GamePage.scoreLabel);
 		score_panel.add(restart);
 		score_panel.add(ranking);
 		add(score_panel);

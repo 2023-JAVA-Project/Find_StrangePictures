@@ -26,6 +26,7 @@ public class GamePage extends JPanel{
 
 	public static Timer timerBar;
 	public static Thread threadBar;
+	public static JLabel scoreLabel;
 	int second=30;
 
 	static JLabel count_label;
@@ -96,12 +97,16 @@ public class GamePage extends JPanel{
 							Count = 5; // 다시 5로 초기화
 							updateCountLabel();
 						}
+						scoreLabel=new JLabel(""+Score);
+						scoreLabel.setFont(new Font("Arial",Font.BOLD ,200));
+						scoreLabel.setBounds(400,100,500,500);
 
 						if(gameEnd == true) {
 							fr.showNamePage();
 						}
 
 					}
+
 				}
 			});
 		}
@@ -123,7 +128,11 @@ public class GamePage extends JPanel{
 		setVisible(true);
 	}
 
+
+
+
 	static public void updateCountLabel() {
 		count_label.setText(" " + Count);
 	}
+
 }
