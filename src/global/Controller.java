@@ -38,6 +38,7 @@ public class Controller {
             String sql = "INSERT INTO java_db.rank (name,score) VALUES (?,?)";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, model.name.getText());
+            pstmt.setInt(2,model.getScore());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
