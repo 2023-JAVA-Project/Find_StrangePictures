@@ -9,6 +9,12 @@ public class Timer extends JLabel implements Runnable {
 
     int second;
 
+    private boolean timerFinished = false;
+
+    public boolean isTimerFinished() {
+        return timerFinished;
+    }
+
     public Timer(int second){
         setBackground(color);
         setOpaque(true);
@@ -27,8 +33,10 @@ public class Timer extends JLabel implements Runnable {
             if (getWidth() > 0) {
                 width -= 1;	// 너비가 1씩 줄어듦
                 setBounds(300,610,width,30);
+            } else {
+                timerFinished = true;
+                break;
             }
-            else break;
 
         }
     }

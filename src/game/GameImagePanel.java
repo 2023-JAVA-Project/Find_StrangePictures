@@ -1,45 +1,53 @@
 package game;
 
+import score.ScorePage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.net.URL;
+
+import static game.GamePage.gameEnd;
+import static game.GamePage.updateCountLabel;
 
 public class GameImagePanel extends JPanel {
-    Vector<ImageIcon> gameImgs = new Vector<>(8);
-//    Image img = getIcon("../image/game/g1.png", 1541, 764).getImage();
-    Image img = new ImageIcon(GamePage.class.getResource("../image/game/g1.png")).getImage().getScaledInstance(900, 400, Image.SCALE_SMOOTH);
+    ArrayList<URL> gameImgs = new ArrayList<>(6);
+
+    Image img = new ImageIcon(GameImagePanel.class.getResource("../image/game/g1.png")).getImage().getScaledInstance(900, 400, Image.SCALE_SMOOTH);
     static JLabel[] touchLabel = new JLabel[5];
+
+
+
+    public GameImagePanel(int labelPosition[][]) {
+        setLayout(null);
+        setBounds(150,140,900,400); // 패널 위치, 사이즈
+        setBackground(Color.CYAN);
+
+        // ArrayList에 이미지 add
+        for(int i = 0; i < 6; i++){
+            gameImgs.add(GameImagePanel.class.getResource("../image/game/g"+(i+1)+".png"));
+        }
+
+        // 터치클릭 패널 기본 설정
+        for(int i = 0; i < touchLabel.length; i++){
+            touchLabel[i] = new JLabel();
+            touchLabel[i].setLayout(null);
+            touchLabel[i].setOpaque(true); // 투명하게 만드는 메서드
+            touchLabel[i].setBackground(Color.red);
+            touchLabel[i].setVisible(true);
+
+            add(touchLabel[i]);
+        }
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(img, 0, 0, this);
-    }
-
-    public GameImagePanel() {
-        for(int i = 0; i < gameImgs.size(); i++){
-//            gameImgs.add(new ImageIcon(GamePage.class.getResource("../image/game/g" + (i + 2) + ".png").getImage().getScaledInstance(900, 400, Image.SCALE_SMOOTH)));
-//            gameImgs.add(new ImageIcon(GameScreen.class.getResource("../image/game/g"+(i+1)+".png")));
-        }
-
-        for(int i = 0; i < touchLabel.length; i++){
-            touchLabel[i] = new JLabel();
-            touchLabel[i].setLayout(null);
-            touchLabel[i].setBackground(Color.red);
-            touchLabel[i].addMouseListener(new MouseAdapter() {
-                public void mouseClicked(MouseEvent me) {
-//                    GameScreen.Count--;
-                    setVisible(false);
-                }
-            });
-        }
-        setLayout(null);
-        setBounds(150,140,900,400); // 패널 위치, 사이즈
-        setBackground(Color.CYAN);
     }
 
     public static void replaceTouchLabel(int[] a) {
@@ -48,19 +56,19 @@ public class GameImagePanel extends JPanel {
         touchLabel[2].setBounds(a[4], a[5], 50, 50);
         touchLabel[3].setBounds(a[6], a[7], 50, 50);
         touchLabel[4].setBounds(a[8], a[9], 50, 50);
-    }
 
-    int imgCnt = 0;
+        for(int i = 0; i < touchLabel.length; i++) {
+            touchLabel[i].setVisible(true);
+        }
+    }
 
     public void uploadImage() {
-        if (imgCnt < gameImgs.size()) {
-            img = gameImgs.get(imgCnt).getImage();
+        if (GamePage.imgCnt+1 < gameImgs.size()) {
+            img = new ImageIcon(gameImgs.get(GamePage.imgCnt+1)).getImage().getScaledInstance(900, 400, Image.SCALE_SMOOTH);
             repaint(); // 패널을 다시 그리도록 요청
+        } else {
+            GamePage.gameEnd = true;
+//            System.out.println(gameEnd);
         }
-        imgCnt++;
-    }
-
-    public static ImageIcon getIcon(String path, int w, int h) {
-        return new ImageIcon(Toolkit.getDefaultToolkit().getImage(path).getScaledInstance(w, h, Image.SCALE_SMOOTH));
     }
 }

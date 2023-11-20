@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Find_Strange_Picutres.iml" filepath="$PROJECT_DIR$/Find_Strange_Picutres.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Find_StrangePictures.iml" filepath="$PROJECT_DIR$/Find_StrangePictures.iml" />
     </modules>
   </component>
 </project>
