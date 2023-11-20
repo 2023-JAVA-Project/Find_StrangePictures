@@ -55,7 +55,7 @@ public class GamePage extends JPanel{
 		threadBar = new Thread(()  -> {
 			timerBar.run();
 			if (timerBar.isTimerFinished()) {
-				SwingUtilities.invokeLater(() -> fr.showScorePage());
+				SwingUtilities.invokeLater(() -> fr.showNamePage());
 			}
 		});
 		threadBar.start();
@@ -98,7 +98,7 @@ public class GamePage extends JPanel{
 						}
 
 						if(gameEnd == true) {
-                            fr.showScorePage();
+                            fr.showNamePage();
 						}
 
 					}
