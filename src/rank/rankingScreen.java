@@ -14,6 +14,12 @@ public class rankingScreen extends JFrame {
         
         setTitle("이상한 그림 찾기");
         setSize(1209,738);
+
+        //Controller dao=new Controller();
+
+        
+        //dao.readData();
+
         panel.setLayout(null);
         panel.setBounds(0,0,1209,738);
 

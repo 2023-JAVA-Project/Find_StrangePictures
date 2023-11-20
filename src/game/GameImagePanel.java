@@ -1,18 +1,9 @@
 package game;
 
-import score.ScorePage;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.net.URL;
-
-import static game.GamePage.gameEnd;
-import static game.GamePage.updateCountLabel;
+import java.util.ArrayList;
 
 public class GameImagePanel extends JPanel {
     ArrayList<URL> gameImgs = new ArrayList<>(6);
