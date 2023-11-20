@@ -52,8 +52,14 @@ public class GamePage extends JPanel{
 
 		timerBar=new Timer(second);
 		add(timerBar);
-		threadBar = new Thread(timerBar);
+		threadBar = new Thread(()  -> {
+			timerBar.run();
+			if (timerBar.isTimerFinished()) {
+				SwingUtilities.invokeLater(() -> fr.showScorePage());
+			}
+		});
 		threadBar.start();
+
 
 		// 틀린그림 이미지 Panel
 		GameImagePanel gameImg = new GameImagePanel(labelLoc);
