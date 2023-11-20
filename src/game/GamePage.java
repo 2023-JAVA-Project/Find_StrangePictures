@@ -1,11 +1,13 @@
 package game;
 
-import global.ImagePanel;
-
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import static game.GameImagePanel.replaceTouchLabel;
+import static game.GameImagePanel.touchLabel;
+import root.RootPage;
 
 public class GamePage extends JPanel{
 
@@ -38,7 +40,7 @@ public class GamePage extends JPanel{
 			{530, 330, 600, 263, 785, 300, 600, 90, 765, 170} // 6번
 	}; // 두번째 이미지부터 넣어야함 (7개만)
 
-	public GamePage() {
+	public GamePage(RootPage fr) {
 		count_label=new JLabel(" "+Count);
 		JLabel number=new JLabel("No."+Num);
 
@@ -57,7 +59,46 @@ public class GamePage extends JPanel{
 		GameImagePanel gameImg = new GameImagePanel(labelLoc);
 		replaceTouchLabel(labelLoc[0]);
 
+		// 투명 패널 터치했을 때 이벤트 설정
+		for(int i = 0; i < touchLabel.length; i++) {
+			touchLabel[i].addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent me) {
 
+					JLabel clickedLabel = (JLabel) me.getSource();
+					Count--;
+					Score += 10; // 점수 계산
+//                    System.out.println(GamePage.Score);
+
+					updateCountLabel(); // GamePage::화면에 Count 다시 씀
+
+					clickedLabel.setVisible(false);
+
+					// 다 찾으면
+					if(Count == 0) {
+
+						gameImg.uploadImage(); // 이미지 바꾸는 메서드
+						GamePage.imgCnt++; // 몇 번째 이미지인지
+
+						if (GamePage.imgCnt != 6) {
+							replaceTouchLabel(labelLoc[GamePage.imgCnt]); // 터치라벨 재배치 시키는 메서드
+
+//							System.out.println(imgCnt);
+
+							for (int j = 0; j < touchLabel.length - 1; j++) { // 투명 label array 5개
+								touchLabel[j].setVisible(true);
+							}
+							Count = 5; // 다시 5로 초기화
+							updateCountLabel();
+						}
+
+						if(gameEnd == true) {
+                            fr.showScorePage();
+						}
+
+					}
+				}
+			});
+		}
 
 		add(count_label);
 		add(number);

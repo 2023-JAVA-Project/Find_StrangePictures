@@ -63,7 +63,7 @@ public class NamePage extends JPanel {
         confirmBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	//RootPage.changePage(this);
+            	//root.RootPage.changePage(this);
                 conn.insertRank(new Model(nameEdit, GamePage.Score));
             }
 
