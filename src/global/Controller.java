@@ -45,6 +45,7 @@ public class Controller {
 
     }
 
+
     public void readData(JLabel[] nameLabels, JLabel[] scoreLabels) {
 
         try {
@@ -74,3 +75,4 @@ public class Controller {
         }
     }
 }
+

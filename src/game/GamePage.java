@@ -1,5 +1,7 @@
 package game;
 
+import root.RootPage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -7,7 +9,6 @@ import java.awt.event.MouseEvent;
 
 import static game.GameImagePanel.replaceTouchLabel;
 import static game.GameImagePanel.touchLabel;
-import root.RootPage;
 
 public class GamePage extends JPanel{
 
@@ -98,7 +99,7 @@ public class GamePage extends JPanel{
 						}
 
 						if(gameEnd == true) {
-                            fr.showNamePage();
+							fr.showNamePage();
 						}
 
 					}
