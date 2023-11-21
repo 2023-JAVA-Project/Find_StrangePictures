@@ -12,9 +12,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 public class RootPage extends JFrame {
     public static JPanel pageNow;
-
+//    String bip = "music.mp3";
+//    Media hit = new Media(bip);
+//    MediaPlayer mediaPlayer = new MediaPlayer(hit); 9
+//    //mediaPlayer.play();
 
     private static JPanel cardPanel;
     private static CardLayout cardLayout;
