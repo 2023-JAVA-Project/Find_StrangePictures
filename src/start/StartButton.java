@@ -11,7 +11,6 @@ import javax.swing.JButton;
 
 public class StartButton extends JButton {
 	private Image img = new ImageIcon(StartButton.class.getResource("../image/startbutton.png")).getImage();
-	ImageIcon startBtnOver = new ImageIcon(StartButton.class.getResource("../image/startbuttonover.png"));
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

@@ -1,6 +1,8 @@
 package root;
 
+import game.GameImagePanel;
 import game.GamePage;
+import global.User;
 import rank.RankPage;
 import score.ScorePage;
 import start.NamePage;
@@ -11,6 +13,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import static game.GameImagePanel.*;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -31,6 +37,9 @@ public class RootPage extends JFrame {
     private static GamePage gamePage;
     private static ScorePage scorePage;
     private static RankPage rankPage;
+
+    ImageIcon backImg = new ImageIcon(GameImagePanel.class.getResource("../image/back.png"));
+
 
     public RootPage() {
 
@@ -60,6 +69,7 @@ public class RootPage extends JFrame {
         cardPanel.add(scorePage, "ScorePage");
         cardPanel.add(rankPage, "RankPage");
 
+
         // RootPage에 CardLayout 패널 추가
         // CardLayout은 바탕이 되는 패널이다
         add(cardPanel);
@@ -70,7 +80,6 @@ public class RootPage extends JFrame {
         RootPage fr = new RootPage();
 
         startPage.startBtn.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 GamePage.threadBar.start();
@@ -81,7 +90,6 @@ public class RootPage extends JFrame {
         startPage.explainBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //fr.add(tutorialP);
                 fr.showTutorialPage();
             }
         });
@@ -105,6 +113,21 @@ public class RootPage extends JFrame {
                 fr.showStartPage();
             }
         });
+
+        rankPage.backBtn.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                fr.showStartPage();
+            }
+        });
+
+        tutorialPage.startBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GamePage.threadBar.start();
+                fr.showGamePage();
+            }
+        });
+
         fr.setVisible(true);
     }
 

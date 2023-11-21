@@ -1,5 +1,6 @@
 package rank;
 
+import game.GameImagePanel;
 import global.Controller;
 import global.ImagePanel;
 
@@ -10,6 +11,10 @@ public class RankPage extends JPanel {
     int rankNum = 1;
     static ImagePanel panel = new ImagePanel("../image/rankPage.png");
 
+    ImageIcon backBtnImg = new ImageIcon(RankPage.class.getResource("../image/back.png"));
+
+    public JLabel backBtn = new JLabel(" ", backBtnImg, JLabel.CENTER);
+
     public RankPage() {
         panel.setLayout(null);
         panel.setBounds(0, 0, 1209, 738);
@@ -17,6 +22,14 @@ public class RankPage extends JPanel {
         Controller read = new Controller();
         JLabel[] nameLabels = new JLabel[5];
         JLabel[] scoreLabels = new JLabel[5];
+
+        // 뒤로가기 버튼
+        backBtn.setLayout(null);
+        backBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        backBtn.setVisible(true);
+        backBtn.setBounds(80, 60, 80, 80);
+
+        add(backBtn);
 
         // 랭킹 라벨 증가
         int y = 280;
@@ -43,6 +56,7 @@ public class RankPage extends JPanel {
 
         setLayout(null);
         panel.setVisible(true);
+
         add(panel);
     }
 }

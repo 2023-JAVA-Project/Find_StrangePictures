@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.*;
 
 import global.ImagePanel;
+import start.StartButton;
 
 public class Tutorial extends JPanel {
 	//이미지 패널 생성
@@ -17,6 +18,7 @@ public class Tutorial extends JPanel {
 	static ImagePanel panel2=new ImagePanel("../image/Tutorial2.png");
 	static ImagePanel panel3=new ImagePanel("../image/Tutorial3.png");
 	static ImagePanel panel4=new ImagePanel("../image/Tutorial4.png");
+	static ImagePanel panel5=new ImagePanel("../image/Tutorial5.png");
 
 	ImageIcon change_next;
 	JButton change_nextbtn;
@@ -37,6 +39,9 @@ public class Tutorial extends JPanel {
 	JButton panel3_before;
 	JButton change_beforebtn;
 	JButton panel4_before;
+	JButton panel4_next;
+
+	public StartButton startBtn;
 
 	public Tutorial() {
 		
@@ -51,6 +56,9 @@ public class Tutorial extends JPanel {
 		
 		panel4.setLayout(null);
 		panel4.setBounds(0,0,1209,738);
+
+		panel5.setLayout(null);
+		panel5.setBounds(0,0,1209,738);
 
 		change_next = new ImageIcon(Tutorial.class.getResource("../image/change_next.png"));
 		change_nextbtn=new JButton(change_next);
@@ -141,6 +149,13 @@ public class Tutorial extends JPanel {
 		panel4_before.setFocusPainted(false);
 		panel4.add(panel4_before);
 
+		panel4_next = new JButton(next_icon);
+		panel4_next.setBounds(1070,310,80,80);
+		panel4_next.setBorderPainted(false);
+		panel4_next.setContentAreaFilled(false);
+		panel4_next.setFocusPainted(false);
+		panel4.add(panel4_next);
+
 		//커서 손가락 모양으로 변경
 		panel1_next.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		panel2_next.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -148,6 +163,12 @@ public class Tutorial extends JPanel {
 		panel3_next.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		panel3_before.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		panel4_before.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		panel4_next.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+		startBtn = new StartButton();
+		startBtn.setVisible(true);
+		startBtn.setBounds(420, 400, 348, 105);
+		panel5.add(startBtn);
 
 		//버튼으로 패널 전환
 		panel1_next.addActionListener(new ActionListener() {
@@ -276,6 +297,28 @@ public class Tutorial extends JPanel {
 		    public void mouseExited(MouseEvent e) {
 		    	panel4_before.setIcon(before_icon); 
 		    }
+		});
+
+		panel4_next.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				panel4.setVisible(false);
+				add(panel5);
+				panel5.setVisible(true);
+			}
+		});
+
+		panel4_next.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				panel4_next.setIcon(change_next);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				panel4_next.setIcon(next_icon);
+			}
 		});
 		
 		setLayout(null);
