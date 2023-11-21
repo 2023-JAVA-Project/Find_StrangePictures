@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -108,6 +110,21 @@ public class RootPage extends JFrame {
                 fr.showStartPage();
             }
         });
+
+        rankPage.backBtn.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent me) {
+                fr.showStartPage();
+            }
+        });
+
+        tutorialPage.startBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GamePage.threadBar.start();
+                fr.showGamePage();
+            }
+        });
+
         fr.setVisible(true);
     }
 
