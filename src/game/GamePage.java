@@ -17,11 +17,11 @@ public class GamePage extends JPanel{
 		g.drawImage(img, 0, 0, null);
 		setOpaque(false);
 	}
-	int Num=1;
 	static int Count=5;
+	public static int imgCnt = 0; // 몇 번째 이미지인지 나타냄
+
 	public static int Score = 0;
 
-	public static int imgCnt = 0; // 몇 번째 이미지인지 나타냄
 
 	public static boolean gameEnd = false;
 
@@ -31,6 +31,7 @@ public class GamePage extends JPanel{
 	int second=30;
 
 	static JLabel count_label;
+	static JLabel number;
 
 	// 900,400
 	int[][] labelLoc = {
@@ -38,13 +39,13 @@ public class GamePage extends JPanel{
 			{800, 45, 690, 100, 700, 310, 450, 240, 490, 50}, // 2번 이미지 위치
 			{690, 190, 800, 330, 540, 230, 635, 50, 840, 40}, // 3번
 			{810, 350, 470, 340, 540, 270, 700, 210, 820, 110}, // 4번
-			{840, 110, 730, 285, 565, 70, 630, 200, 642, 110}, // 5번
-			{530, 330, 600, 263, 785, 300, 600, 90, 765, 170} // 6번
+			{840, 111, 730, 285, 565, 70, 630, 200, 642, 110}, // 5번
+			{530, 330, 600, 263, 785, 301, 600, 90, 765, 170} // 6번
 	}; // 두번째 이미지부터 넣어야함 (7개만)
 
 	public GamePage(RootPage fr) {
 		count_label=new JLabel(" "+Count);
-		JLabel number=new JLabel("No."+Num);
+		number=new JLabel("No."+(imgCnt+1));
 
 		count_label.setFont(new Font("Arial",Font.BOLD ,30));
 		count_label.setBounds(1060,602,50,50);
@@ -82,7 +83,7 @@ public class GamePage extends JPanel{
 
 					for(int j = 0; j < correctLabel.length; j++) {
 						Point correctLabelLocation = correctLabel[j].getLocation();
-						if(correctLabelLocation.getX() == labelLocation.getX()) {
+						if(correctLabelLocation.getY() == labelLocation.getY()) {
 							correctLabel[j].setVisible(true);
 						}
 					}
@@ -105,6 +106,7 @@ public class GamePage extends JPanel{
 							}
 							Count = 5; // 다시 5로 초기화
 							updateCountLabel();
+							updateNumberLabel();
 						}
 
 
@@ -150,6 +152,9 @@ public class GamePage extends JPanel{
 
 	static public void updateCountLabel() {
 		count_label.setText(" " + Count);
+	}
+	static public void updateNumberLabel() {
+		number.setText("No."+(imgCnt+1));
 	}
 
 }
