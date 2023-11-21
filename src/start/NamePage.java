@@ -3,6 +3,7 @@ package start;
 import game.GamePage;
 import global.Controller;
 import global.User;
+import score.ScorePage;
 
 import java.awt.Cursor;
 import java.awt.Font;
@@ -63,8 +64,9 @@ public class NamePage extends JPanel {
         confirmBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	//root.RootPage.changePage(this);
+            	//root.RootPage.changePage(this)
                 conn.insertRank(new User(nameEdit, GamePage.Score));
+                ScorePage.updateScore();
             }
 
         });
