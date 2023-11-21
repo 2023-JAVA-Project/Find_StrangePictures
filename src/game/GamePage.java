@@ -5,11 +5,10 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import static game.GameImagePanel.replaceTouchLabel;
-import static game.GameImagePanel.touchLabel;
-
 import global.User;
 import root.RootPage;
+
+import static game.GameImagePanel.*;
 
 public class GamePage extends JPanel{
 
@@ -76,10 +75,17 @@ public class GamePage extends JPanel{
 					JLabel clickedLabel = (JLabel) me.getSource();
 					Count--;
 					Score += 10; // 점수 계산
-//                  System.out.println(GamePage.Score);
-
 
 					updateCountLabel(); // GamePage::화면에 Count 다시 씀
+
+					Point labelLocation = clickedLabel.getLocation();
+
+					for(int j = 0; j < correctLabel.length; j++) {
+						Point correctLabelLocation = correctLabel[j].getLocation();
+						if(correctLabelLocation.getX() == labelLocation.getX()) {
+							correctLabel[j].setVisible(true);
+						}
+					}
 
 					clickedLabel.setVisible(false);
 
