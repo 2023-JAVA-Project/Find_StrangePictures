@@ -28,23 +28,11 @@ public class ScorePage extends JPanel {
         restart = new JButton(restart_icon);
         ranking = new JButton(ranking_icon);
 
-        try {
-            ResultSet rs = CommonFrame.getResult("select * from java_db.rank ORDER BY id DESC");
-            rs.next();
-            scoreLabel = new JLabel("" + rs.getInt("score"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        scoreLabel.setFont(new Font("Arial", Font.BOLD, 200));
-        scoreLabel.setBounds(450, 100, 500, 500);
-
         restart.setLayout(null);
         restart.setBounds(200, 520, 300, 100);
         restart.setBorderPainted(false);
         restart.setContentAreaFilled(false);
         restart.setFocusPainted(false);
-
 
         ranking.setLayout(null);
         ranking.setBounds(650, 520, 300, 100);
@@ -52,7 +40,6 @@ public class ScorePage extends JPanel {
         ranking.setContentAreaFilled(false);
         ranking.setFocusPainted(false);
 
-        score_panel.add(scoreLabel);
         score_panel.add(restart);
         score_panel.add(ranking);
         add(score_panel);
@@ -62,5 +49,17 @@ public class ScorePage extends JPanel {
         setLayout(null);
         setVisible(true);
     }
-
+    public static void updateScore() {
+        try {
+            ResultSet rs = CommonFrame.getResult("select * from java_db.rank ORDER BY id DESC");
+            rs.next();
+            System.out.println("" + rs.getInt("score"));
+            scoreLabel = new JLabel("" + rs.getInt("score"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        scoreLabel.setFont(new Font("Arial", Font.BOLD, 200));
+        scoreLabel.setBounds(450, 100, 500, 500);
+        score_panel.add(scoreLabel);
+    }
 }
