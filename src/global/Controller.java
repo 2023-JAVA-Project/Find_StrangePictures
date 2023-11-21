@@ -33,7 +33,7 @@ public class Controller {
         }
     }
 
-    public void insertRank(Model model) {
+    public void insertRank(User model) {
         try {
             String sql = "INSERT INTO java_db.rank (name,score) VALUES (?,?)";
             pstmt = conn.prepareStatement(sql);

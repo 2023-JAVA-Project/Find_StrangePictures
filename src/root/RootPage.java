@@ -1,6 +1,7 @@
 package root;
 
 import game.GamePage;
+import rank.RankPage;
 import score.ScorePage;
 import start.NamePage;
 import start.StartPage;
@@ -23,6 +24,7 @@ public class RootPage extends JFrame {
     private static NamePage namePage;
     private static GamePage gamePage;
     private static ScorePage scorePage;
+    private static RankPage rankPage;
 
     public RootPage() {
 
@@ -42,6 +44,7 @@ public class RootPage extends JFrame {
         namePage = new NamePage();
         gamePage = new GamePage(this);
         scorePage = new ScorePage();
+        rankPage=new RankPage();
 
         // CardLayout에 페이지 추가
         cardPanel.add(startPage, "StartPage");
@@ -49,6 +52,7 @@ public class RootPage extends JFrame {
         cardPanel.add(namePage, "NamePage");
         cardPanel.add(gamePage, "GamePage");
         cardPanel.add(scorePage, "ScorePage");
+        cardPanel.add(rankPage, "RankPage");
 
         // RootPage에 CardLayout 패널 추가
         // CardLayout은 바탕이 되는 패널이다
@@ -83,6 +87,18 @@ public class RootPage extends JFrame {
             }
         });
 
+        scorePage.ranking.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fr.showRankPage();
+            }
+        });
+        scorePage.restart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fr.showStartPage();
+            }
+        });
         fr.setVisible(true);
     }
 
@@ -108,5 +124,9 @@ public class RootPage extends JFrame {
     // ScorePage로 전환하는 메서드
     public static void showScorePage() {
         cardLayout.show(cardPanel, "ScorePage");
+    }
+
+    public static void showRankPage() {
+        cardLayout.show(cardPanel, "RankPage");
     }
 }
