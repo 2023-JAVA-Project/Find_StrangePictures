@@ -28,7 +28,7 @@ public class GamePage extends JPanel{
 	public static Timer timerBar;
 	public static Thread threadBar;
 
-	int second=30;
+	int second=17;
 
 	static JLabel count_label;
 
