@@ -1,8 +1,6 @@
 package root;
 
-import game.GameImagePanel;
 import game.GamePage;
-import global.User;
 import rank.RankPage;
 import score.ScorePage;
 import start.NamePage;
@@ -13,14 +11,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-import static game.GameImagePanel.*;
+
+import java.io.File;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class RootPage extends JFrame {
     public static JPanel pageNow;
-
+//    String bip = "music.mp3";
+//    Media hit = new Media(bip);
+//    MediaPlayer mediaPlayer = new MediaPlayer(hit); 9
+//    //mediaPlayer.play();
 
     private static JPanel cardPanel;
     private static CardLayout cardLayout;
@@ -31,9 +33,6 @@ public class RootPage extends JFrame {
     private static GamePage gamePage;
     private static ScorePage scorePage;
     private static RankPage rankPage;
-
-    ImageIcon backImg = new ImageIcon(GameImagePanel.class.getResource("../image/back.png"));
-
 
     public RootPage() {
 
@@ -63,7 +62,6 @@ public class RootPage extends JFrame {
         cardPanel.add(scorePage, "ScorePage");
         cardPanel.add(rankPage, "RankPage");
 
-
         // RootPage에 CardLayout 패널 추가
         // CardLayout은 바탕이 되는 패널이다
         add(cardPanel);
@@ -71,9 +69,11 @@ public class RootPage extends JFrame {
     }
 
     public static void main(String[] args) {
-        RootPage fr = new RootPage();
+        audio();
 
+        RootPage fr = new RootPage();
         startPage.startBtn.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 GamePage.threadBar.start();
@@ -84,6 +84,7 @@ public class RootPage extends JFrame {
         startPage.explainBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //fr.add(tutorialP);
                 fr.showTutorialPage();
             }
         });
@@ -107,21 +108,6 @@ public class RootPage extends JFrame {
                 fr.showStartPage();
             }
         });
-
-        rankPage.backBtn.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent me) {
-                fr.showStartPage();
-            }
-        });
-
-        tutorialPage.startBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                GamePage.threadBar.start();
-                fr.showGamePage();
-            }
-        });
-
         fr.setVisible(true);
     }
 
@@ -151,5 +137,17 @@ public class RootPage extends JFrame {
 
     public static void showRankPage() {
         cardLayout.show(cardPanel, "RankPage");
+    }
+
+    public static void audio(){
+        try{
+           File file=new File("c:\\music.wav");
+           Clip clip=AudioSystem.getClip();
+           clip.open(AudioSystem.getAudioInputStream(file));
+           clip.loop(10);
+           clip.start();
+        }catch(Exception e){
+            System.out.print("오디오 불러오기 실패");
+        }
     }
 }
