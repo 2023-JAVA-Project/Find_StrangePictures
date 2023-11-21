@@ -37,7 +37,7 @@ public class ScorePage extends JPanel {
         }
 
         scoreLabel.setFont(new Font("Arial", Font.BOLD, 200));
-        scoreLabel.setBounds(430, 100, 500, 500);
+        scoreLabel.setBounds(450, 100, 500, 500);
 
         restart.setLayout(null);
         restart.setBounds(200, 520, 300, 100);

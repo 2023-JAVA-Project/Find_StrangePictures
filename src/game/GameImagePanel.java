@@ -27,7 +27,7 @@ public class GameImagePanel extends JPanel {
         for(int i = 0; i < touchLabel.length; i++){
             touchLabel[i] = new JLabel();
             touchLabel[i].setLayout(null);
-            touchLabel[i].setOpaque(true); // 투명하게 만드는 메서드
+//            touchLabel[i].setOpaque(true); // 투명하게 만드는 메서드
             touchLabel[i].setBackground(Color.red);
             touchLabel[i].setVisible(true);
 

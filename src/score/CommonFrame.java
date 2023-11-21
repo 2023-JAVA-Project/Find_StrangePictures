@@ -16,7 +16,7 @@ public class CommonFrame {
 
             PreparedStatement pst = con.prepareStatement(sql);
             for (int i = 0; i < p.length; i++) {
-                pst.setObject(i + 1, p[i]);
+                pst.setObject(i, p[i]);
             }
 
             return pst.executeQuery();
