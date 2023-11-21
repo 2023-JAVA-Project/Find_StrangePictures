@@ -47,10 +47,10 @@ public class RootPage extends JFrame {
         rankPage=new RankPage();
 
         // CardLayout에 페이지 추가
-//        cardPanel.add(startPage, "StartPage");
-//        cardPanel.add(tutorialPage, "TutorialPage");
-//        cardPanel.add(namePage, "NamePage");
-//        cardPanel.add(gamePage, "GamePage");
+        cardPanel.add(startPage, "StartPage");
+        cardPanel.add(tutorialPage, "TutorialPage");
+        cardPanel.add(namePage, "NamePage");
+        cardPanel.add(gamePage, "GamePage");
         cardPanel.add(scorePage, "ScorePage");
         cardPanel.add(rankPage, "RankPage");
 

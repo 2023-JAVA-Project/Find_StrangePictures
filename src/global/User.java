@@ -3,12 +3,12 @@ package global;
 import javax.swing.*;
 import java.util.Date;
 
-public class Model {
+public class User {
     public JTextField name;
-    int score=0;
+    static int score=0;
     Date date;
 
-    public Model(JTextField name, int score){
+    public User(JTextField name, int score){
            this.name=name;
 //        this.date=date;
         this.score=score;
@@ -19,7 +19,7 @@ public class Model {
     public Date getDate(){
         return date;
     }
-    public int getScore(){
+    public static int getScore(){
         return score;
     }
     public void setName(JTextField name){
@@ -28,7 +28,7 @@ public class Model {
     public void setDate(Date date){
         this.date=date;
     }
-    public void setScore(int score){
-        this.score=score;
+    public static void setScore(int scores){
+        score=scores;
     }
 }

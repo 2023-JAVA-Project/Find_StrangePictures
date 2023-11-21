@@ -7,6 +7,8 @@ import java.awt.event.MouseEvent;
 
 import static game.GameImagePanel.replaceTouchLabel;
 import static game.GameImagePanel.touchLabel;
+
+import global.User;
 import root.RootPage;
 
 public class GamePage extends JPanel{
@@ -26,7 +28,7 @@ public class GamePage extends JPanel{
 
 	public static Timer timerBar;
 	public static Thread threadBar;
-	public static JLabel scoreLabel;
+
 	int second=30;
 
 	static JLabel count_label;
@@ -74,7 +76,8 @@ public class GamePage extends JPanel{
 					JLabel clickedLabel = (JLabel) me.getSource();
 					Count--;
 					Score += 10; // 점수 계산
-//                    System.out.println(GamePage.Score);
+//                  System.out.println(GamePage.Score);
+
 
 					updateCountLabel(); // GamePage::화면에 Count 다시 씀
 
@@ -97,18 +100,18 @@ public class GamePage extends JPanel{
 							Count = 5; // 다시 5로 초기화
 							updateCountLabel();
 						}
-						scoreLabel=new JLabel(""+Score);
-						scoreLabel.setFont(new Font("Arial",Font.BOLD ,200));
-						scoreLabel.setBounds(400,100,500,500);
+
 
 						if(gameEnd == true) {
 							fr.showNamePage();
+							User.setScore(getScore());
 						}
-
+						setScore(Score);
 					}
 
 				}
 			});
+
 		}
 
 		add(count_label);
@@ -126,8 +129,16 @@ public class GamePage extends JPanel{
 		setLayout(null);
 		setBounds(0,0,1209,738);
 		setVisible(true);
+
+
 	}
 
+	public int getScore() {
+		return Score;
+	}
+	public void setScore(int newScore) {
+		Score = newScore;
+	}
 
 
 
